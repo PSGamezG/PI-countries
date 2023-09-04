@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import NavBar from "./Components2/NavBar/NavBar";
+
+import { Home, Landing, Detail, Form } from "./Components";
+
+import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { pathname } = useLocation();
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="App">
+        {pathname !== "/" && <NavBar />}
+
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
+          <Route path="/create" element={<Form />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+// renderizando home y landing para que se muestre
+//Con BrowserRouter podremos indicar en que ruta queremos que se muestre cada componente
+//con la opcion render={()=> <Componente/>} podemos pasarle props al renderizarlo, investigar
+
+//NOTAS: QUE EN EL LANDING SE MUESTRE EL GO PARA HOME, EN EL HOME EL BOTON DE FORM/CREATE
+//QUE EN EL FORM APAREZCA SOLO EL DE HOME
+//EL DETAIL LLEGA A TRAVES DE TOCAR LA CARTA
