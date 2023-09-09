@@ -1,22 +1,43 @@
 import "./App.css";
 import NavBar from "./Components2/NavBar/NavBar";
+import { useState } from "react";
+import axios from "axios";
 
-import { Home, Landing, Detail, Form } from "./Components";
+import { Home, Landing, Detail, Form } from "./Views";
 
 import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
+  const [countries, setCountries] = useState([]);
+
   const { pathname } = useLocation();
+
+  const onSearch = async (name) => {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/countries/name?name=${name}`
+      );
+
+      if (data.length > 0) {
+        setCountries((country) => [...country, data]);
+        console.log("aparecio el pais!");
+      } else {
+        window.alert("No countries found");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <>
       <div className="App">
-        {pathname !== "/" && <NavBar />}
+        {pathname !== "/" && <NavBar onSearch={onSearch} />}
 
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/countries/:ID" element={<Detail />} />
           <Route path="/create" element={<Form />} />
         </Routes>
       </div>

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ onSearch }) => {
   return (
     <div>
       <Link to="/home">HOME</Link>
