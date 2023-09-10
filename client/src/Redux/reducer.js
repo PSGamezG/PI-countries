@@ -5,13 +5,18 @@ import {
   GET_BY_ID,
   ALPHABETICAL_ORDER,
   POPULATION_ORDER,
+  CONTINENT_FILTER,
+  GET_ACTIVITIES,
+  ACTIVITY_FILTER,
 } from "./actions";
 
 const initialState = {
   countries: [],
   countryDetail: {},
+  filterContinent: [],
+  allActivities: [],
+  activities: [],
   post: [],
-  
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +25,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload,
+        filterContinent: [],
       };
 
     case GET_BYNAME:
@@ -32,6 +38,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countryDetail: action.payload,
+      };
+
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        allActivities: action.payload,
       };
 
     case ALPHABETICAL_ORDER:
@@ -68,6 +80,39 @@ const reducer = (state = initialState, action) => {
           action.payload === "ASC"
             ? sortedCountries.sort((a, b) => a.population - b.population)
             : sortedCountries.sort((a, b) => b.population - a.population),
+      };
+
+    case CONTINENT_FILTER:
+      const countriesFiltered = state.countries.filter((country) =>
+        country.continents.includes(action.payload)
+      );
+      return {
+        ...state,
+        filterContinent: countriesFiltered,
+      };
+
+    case ACTIVITY_FILTER:
+      const allCountries2 = state.countries;
+
+      const solo = allCountries2.filter((pais) => {
+        return pais.Activities.length > 0;
+      });
+
+      let array = [];
+
+      for (let i = 0; i < solo.length; i++) {
+        for (let j = 0; j < solo[i].Activities.length; j++) {
+          if (solo[i].Activities[j].name === action.payload) {
+            array.push(solo[i]);
+          }
+        }
+      }
+
+      const filtro = action.payload === "Todos" ? allCountries2 : array;
+
+      return {
+        ...state,
+        countries: filtro,
       };
 
     case POST_ACTIVITY:

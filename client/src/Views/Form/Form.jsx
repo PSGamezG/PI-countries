@@ -1,37 +1,75 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { React, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Validation from "../Validation";
-import { postActivity } from "../../Redux/actions";
+import { getCountries, postActivity } from "../../Redux/actions";
 import axios from "axios";
 
 const Form = () => {
-  const allCountries = useSelector((state) => state.allCountries);
+  const dispatch = useDispatch();
+
+  const countries = useSelector((state) => state.countries);
+
+  if (!countries) {
+    return <p>Loading...</p>;
+  }
+
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [dispatch]);
 
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
     duration: "",
     season: "",
-    countries: "",
+    countries: [],
   });
 
   const [errors, setErros] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
 
   const changeForm = (event) => {
     setErros(Validation({ ...form, [event.target.name]: event.target.value }));
-    setForm({ ...form, [event.target.name]: event.target.value });
+    // setForm({ ...form, [event.target.name]: event.target.value });
+
+    const { name, value, options } = event.target;
+
+    if (name === "countries") {
+      const selectedCountries = [];
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+          const [ID] = options[i].value.split("-");
+          selectedCountries.push(ID);
+        }
+      }
+      setForm({ ...form, countries: selectedCountries });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:3001/activities", form)
-      .then((res) => alert(res));
+    axios.post("http://localhost:3001/activities", form).then((res) => {
+      if (res.status === 200) {
+        setSuccessMessage("Activity created successfully!");
+        setForm({
+          name: "",
+          difficulty: "",
+          duration: "",
+          season: "",
+          countries: [],
+        });
+      } else {
+        setSuccessMessage("");
+      }
+    });
   };
 
   return (
     <div>
       <h2>Create your Activity!</h2>
+      {successMessage && <p>{successMessage}</p>}
       <form onSubmit={submitHandler}>
         <div>
           <label>Name: </label>
@@ -83,13 +121,18 @@ const Form = () => {
 
         <div>
           <label>Countries: </label>
-          {/* <select name="countries" onChange={(event) => changeForm(event)}>
-            {allCountries.map((country) => (
-              <option key={country.id} value={country.id}>
+          <select
+            name="countries"
+            onChange={changeForm}
+            multiple={true}
+            size={countries.length}
+          >
+            {countries.map((country) => (
+              <option key={country.ID} value={`${country.ID}-${country.name}`}>
                 {country.name}
               </option>
             ))}
-          </select> */}
+          </select>
         </div>
         <button type="submit">SUBMIT</button>
       </form>

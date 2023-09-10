@@ -17,7 +17,7 @@ const CardsContainer = ({ countries }) => {
             ID={country.ID}
             name={country.name}
             flagImage={country.flagImage}
-            continent={country.continents[0]}
+            continent={country.continents}
           />
         );
       })}
