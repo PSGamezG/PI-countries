@@ -1,0 +1,37 @@
+.landing-container {
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-acuarela-garabatos-viaje_79603-1832.jpg?w=2000");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh; /* Establece la altura al 100% del viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white; /* Cambia el color del texto para que sea legible en el fondo */
+}
+
+h1 {
+  font-family: "Century Gothic", sans-serif;
+  font-size: 36px; /* Ajusta el tamaño de fuente según tus preferencias */
+  color: black;
+}
+
+.button {
+  background-color: rgba(187, 234, 241);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none; /* Elimina el subrayado en el enlace */
+  font-family: "Century Gothic", sans-serif;
+  font-weight: bold;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

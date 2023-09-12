@@ -1,0 +1,90 @@
+.filters-container {
+    display: flex; /* Organiza los filtros en línea */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    margin-bottom: 20px; /* Agrega espacio en la parte inferior del contenedor */
+    background-color: rgb(212, 226, 136);
+    font-family: "Century Gothic", sans-serif;
+  }
+
+  .searchbar {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos en el SearchBar */
+    background-color: rgb(212, 226, 136);
+    padding: px; /* Añade espacio interno solo arriba y abajo para centrar verticalmente el input */
+  }
+  
+  .searchbar input[type="text"] {
+    flex: 1; /* Ocupa todo el espacio horizontal disponible */
+    border: none;
+    outline: none;
+    padding: 5px 10px; /* Espaciado interno solo a los lados para mantener el tamaño del input */
+    font-size: 16px;
+    border-radius: 5px; /* Bordes redondeados para el input */
+    border: 1px solid #ccc;
+  }
+  
+  .searchbar button {
+    background-color: rgba(187, 234, 241);; /* Color de fondo del botón */
+    color: black; /* Color del texto del botón */
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    border: none; /* Quita el borde del botón */
+    border-radius: 8px; /* Bordes redondeados para el botón */
+    padding: 10px 10px; /* Espaciado interno para el botón */
+    margin-left: 10px; /* Espacio entre el input y el botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    transition: background-color 0.3s ease; /* Efecto de transición para el color de fondo */
+  }
+  
+  .searchbar button:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar por encima del botón */
+  }
+  
+  /* Estilos para los filtros individuales */
+  .filters-container > div {
+    flex: 1; /* Ocupa todo el espacio disponible horizontalmente */
+    margin-right: 10px; /* Espacio entre los filtros */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos verticalmente */
+  }
+  
+  /* Estilos para los títulos de los filtros */
+  .filters-container > div label {
+    margin-bottom: 0px; /* Espacio entre el título y el elemento del filtro */
+    font-weight: bold; /* Texto en negrita para el título */
+    font-size: 16px; /* Tamaño del texto del título */
+  }
+  
+  /* Estilos para los elementos de filtro */
+  .filters-container > div select,
+  .filters-container > div input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del selector o input */
+    border-radius: 3px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño del texto en el filtro */
+  }
+
+  .link-go-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(187, 234, 241);
+    color: black;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px; /* Bordas redondos */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efectos de transición para el color de fondo y la transformación */
+    text-decoration: none; /* Quitar el subrayado */
+    text-align: center; /* Centrar el texto */
+    line-height: 1; /* Eliminar el espacio extra debajo del texto */
+    width: fit-content; /* Ajustar el ancho al contenido del texto */
+    margin: auto;
+  }
+  
+  .link-go-back:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar por encima del botón */
+    transform: translateY(-5px); /* Eleva el botón en 5px al pasar por encima */
+  }

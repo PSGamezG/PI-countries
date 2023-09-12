@@ -6,9 +6,8 @@ const FilterActivities = ({ handleFilterActivity }) => {
 
   return (
     <div>
-      <h2>Activity Filter:</h2>
+      <label>Search by activity: </label>
       <div>
-        Search by activity
         {!activities ? (
           <p>No se han creado actividades</p>
         ) : (

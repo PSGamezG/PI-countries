@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Validation from "../Validation";
 import { getCountries, postActivity } from "../../Redux/actions";
 import axios from "axios";
+import "./Form.css";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -67,10 +68,10 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <h2>Create your Activity!</h2>
+    <div className="form-container">
+      <h2 className="form-title">Create your Activity!</h2>
       {successMessage && <p>{successMessage}</p>}
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className="activity-form">
         <div>
           <label>Name: </label>
           <input

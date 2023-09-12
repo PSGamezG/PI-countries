@@ -1,0 +1,23 @@
+.nav-container {
+  display: flex;
+  justify-content: space-evenly; /* Coloca los enlaces en extremos opuestos */
+  align-items: center; /* Centra verticalmente los enlaces en el contenedor */
+  width: 100%;
+  background-color: rgb(212, 226, 136);
+}
+
+.nav-link {
+  text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+  font-family: "Century Gothic", sans-serif; /* Cambia la fuente de los enlaces */
+  font-weight: bold; /* Hace que el texto sea más grueso */
+  color: #ffffff; /* Color de texto por defecto */
+  transition: color 0.3s ease; /* Transición suave del color de texto */
+}
+
+.nav-link:hover {
+  color: rgb(
+    220,
+    112,
+    182
+  ); /* Cambia el color de texto al pasar el cursor por encima */
+}

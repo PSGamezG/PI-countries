@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -99,18 +100,38 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Este es el home</h1>
-      <SortCountries onChange={(event) => handleSort(event.target.value)} />
-      <SearchBar onSearch={handleChange} totalPages={filteredTotalPages} />
-      <div>
-        <label>Sort by Population:</label>
-        <select onChange={(event) => handlePopulationSort(event.target.value)}>
-          <option value="ASC">Ascending</option>
-          <option value="DESC">Descending</option>
-        </select>
+      <div className="container">
+        <div className="searchbar">
+          <SearchBar onSearch={handleChange} totalPages={filteredTotalPages} />
+        </div>
+        <div className="filters-container">
+          <div className="alphabetic-filter">
+            <SortCountries
+              onChange={(event) => handleSort(event.target.value)}
+            />
+          </div>
+
+          <div className="population-filter">
+            <label>Sort by Population:</label>
+            <select
+              onChange={(event) => handlePopulationSort(event.target.value)}
+            >
+              <option value="ASC">Ascending</option>
+              <option value="DESC">Descending</option>
+            </select>
+          </div>
+
+          <div className="activity-filter">
+            <FilterActivities handleFilterActivity={handleFilterActivity} />
+          </div>
+
+          <div className="continent-filter">
+            <FilterCountries
+              onChange={(event) => handleFilter(event.target.value)}
+            />
+          </div>
+        </div>
       </div>
-      <FilterActivities handleFilterActivity={handleFilterActivity} />
-      <FilterCountries onChange={(event) => handleFilter(event.target.value)} />
       <CardsContainer countries={currentCountries} />
       <Pagination
         className="pagination"
@@ -119,9 +140,11 @@ const Home = () => {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-
+    
       {/* <button onClick={handleReset}>All countries</button> */}
-      <Link to="/">Go Back</Link>
+      <Link to="/" className="link-go-back">
+        Go Back
+      </Link>
     </div>
   );
 };

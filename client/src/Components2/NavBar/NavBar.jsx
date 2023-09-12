@@ -1,10 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = ({ onSearch }) => {
   return (
-    <div>
-      <Link to="/home">HOME</Link>
-      <Link to="/create">FORM</Link>
+    <div className="nav-container">
+      <Link to="/home" className="nav-link">
+        HOME
+      </Link>
+      <Link to="/create" className="nav-link">
+        FORM
+      </Link>
     </div>
   );
 };

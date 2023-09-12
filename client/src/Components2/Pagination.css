@@ -1,0 +1,45 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Century Gothic", sans-serif;
+  }
+  
+  .pagination button {
+    background-color: rgba(187, 234, 241);
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 10px 15px;
+    margin: 0 3px;
+  }
+  
+  .pagination button.active {
+    background-color: #555;
+    color: white;
+  }
+  
+  .pagination button:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+  }
+  
+  .pagination .page-numbers {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilos para el botón "Prev" */
+  .pagination .prev-button {
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el botón "Next" */
+  .pagination .next-button {
+    margin-left: 5px;
+  }

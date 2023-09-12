@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -41,11 +42,19 @@ function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
 
   return (
     <div className="pagination">
-      <button onClick={handlePrevPage} disabled={currentPage === 1}>
+      <button
+        onClick={handlePrevPage}
+        disabled={currentPage === 1}
+        className="prev-button"
+      >
         Prev
       </button>
       {renderPageNumbers()}
-      <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+      <button
+        onClick={handleNextPage}
+        disabled={currentPage === totalPages}
+        className="next-button"
+      >
         Next
       </button>
     </div>

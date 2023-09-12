@@ -1,0 +1,98 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/25ec1137806921.574d58c080bab.png");
+}
+
+.form-container {
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  /* Otros estilos para el contenedor si es necesario */
+}
+
+.form-title {
+  font-size: 30px;
+  font-family: "Century Gothic", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2:hover {
+  transform: translateY(
+    -5px
+  ); /* Eleva el título 5 píxeles hacia arriba al pasar el mouse */
+  transition: transform 0.2s ease; /* Agrega una transición suave */
+}
+
+.activity-form {
+  font-family: "Century Gothic", sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(212, 226, 136);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.activity-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.activity-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.activity-form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: "Century Gothic", sans-serif;
+  /* Añade estilos para centrar el contenido horizontalmente */
+  text-align: center;
+}
+
+.activity-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: "Century Gothic", sans-serif;
+}
+
+.activity-form select {
+  height: 35px;
+}
+
+.activity-form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  
+}
+
+.activity-form button:hover {
+  background-color: #555;
+}
+
+
+.success-message {
+    font-size: 18px; /* Cambia el tamaño de fuente según tus preferencias */
+    color: green; /* Cambia el color del texto según tus preferencias */
+    /* Otros estilos que desees aplicar */
+  }

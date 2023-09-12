@@ -3,7 +3,7 @@ import React from "react";
 const FilterCountries = ({ onChange }) => {
   return (
     <div>
-      <h1>Countries Filter: </h1>
+      <label>Filter By Continent: </label>
       <select onChange={onChange}>
         <option value="">All</option>
         <option value="Africa">Africa</option>

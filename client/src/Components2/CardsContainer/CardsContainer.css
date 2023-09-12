@@ -1,8 +1,13 @@
 .card-container {
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
   flex-wrap: wrap;
+  justify-content: space-between; /* Distribuir tarjetas uniformemente */
   gap: 2em;
+  margin: 0 20px;
+}
+
+.card {
+  max-width: calc(33.33% - 1em); /* Ajustar el ancho máximo de cada tarjeta */
+  /* Otros estilos de tarjeta */
 }

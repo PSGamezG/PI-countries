@@ -1,11 +1,13 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import "./Landing.css";
 
 const Landing = () => {
   return (
-    <>
-      <h1>Este es el componente Landing</h1>
-      <Link to="/home">Bon Voyage</Link>
-    </>
+    <div className="landing-container">
+      <h1>Welcome to your personal Compass!</h1>
+      <Link to="/home" className="button">Bon Voyage</Link>
+    </div>
   );
 };
 
